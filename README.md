@@ -230,7 +230,39 @@ Output: **Hello, Sara**
         };
 
         export default UseStateArray;
+        
+### useState change object value
 
+        import React, { useState } from 'react';
+        const persons =
+        {
+          "name":"Mia Hossain",
+          "age": 24,
+          "message":"Hi, I am a competatitive programmer",
+        }
+
+        const UseStateObject = () =>
+        {
+          const[person, setPerson] = useState(persons);
+
+          const ChangeMessage = () =>
+          {
+            setPerson({...person, message: "I am font-end developer", age: 25});
+          }
+
+          return(
+            <>
+              <div>
+                <h4>{person.name}</h4>
+                <h4>{person.age}</h4>
+                <h4>{person.message}</h4>
+                <button onClick={ChangeMessage} className="btn">Change the message</button>
+              </div>
+            </>
+          )
+        };
+
+        export default UseStateObject;
 
 
  ## Conditional Rendering
