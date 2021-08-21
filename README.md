@@ -122,6 +122,31 @@ Output: **Hello, Sara**
 
         export default State;
         
+        
+ * ### state in function component
+ 
+        import React, {useState} from 'react';
+        const FunctionState = () =>
+        {
+          const [title, setTitle] = useState("Title");
+          const [name, setName] = useState("Mia Hossain");
+
+
+          return(
+            <>
+              <div>
+                <h3>{title+", "+name}</h3>
+                <button className="btn" onClick={() => {setTitle("Change Title"); setName("Roma Akter")}}>change title</button>
+              </div>
+            </>
+          )
+        };
+
+        export default FunctionState;
+
+
+
+
  ## Conditional Rendering
  * ### Home
         import React from 'react'
