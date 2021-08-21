@@ -145,30 +145,31 @@ Output: **Hello, Sara**
         export default FunctionState;
         
  * Exmaple
- 
-        import React, { useState } from 'react';
+
+       import React, { useState } from 'react';
         const UseStateBasics = () =>
         {
-          const [text, setText] = useState('random title');
-          const handleClick = () => {
-            if (text === 'random title') {
-              setText('hello world');
-            } else {
-              setText('random title');
+          const [title, setTitle] = useState("Hi");
+          const handleChange = () =>
+          {
+            if(title === "Hi")
+            {
+              setTitle("Hello");
             }
-          };
-
-          return (
-            <React.Fragment>
-              <h1>{text}</h1>
-              <button type='button' className='btn' onClick={handleClick}>
-                change title
-              </button>
-            </React.Fragment>
-          );
+            else
+            {
+              setTitle("Hi");
+            }
+          }
+          return(
+            <div>
+              <h1>{title}</h1>
+              <button className="btn" onClick={handleChange}>change title</button>
+            </div>
+          )
         };
 
-        export default UseStateBasics;     
+        export default UseStateBasics;    
 
 
 
