@@ -299,7 +299,40 @@ Output: **Hello, Sara**
         };
 
         export default UseStateObject;
+### UseState counter
 
+        import React, { useState } from 'react';
+        const persons =
+        {
+          "name":"Mia Hossain",
+          "age": 24,
+          "message":"Hi, I am a competatitive programmer",
+        }
+
+        const UseStateObject = () =>
+        {
+          const[name, setName] = useState(persons.name);
+          const[age, setAge] =  useState(persons.age);
+          const[message, setMessage] = useState(persons.message)
+
+          const ChangeMessage = () =>
+          {
+            setMessage("Hi, I am a font-end developer");
+          }
+
+          return(
+            <>
+              <div>
+                <h4>{name}</h4>
+                <h4>{age}</h4>
+                <h4>{message}</h4>
+                <button onClick={ChangeMessage} className="btn">Change the message</button>
+              </div>
+            </>
+          )
+        };
+
+        export default UseStateObject;
 
  ## Conditional Rendering
  * ### Home
