@@ -170,7 +170,66 @@ Output: **Hello, Sara**
         };
 
         export default UseStateBasics;    
+### useState array, map, delete, all delete
 
+        import React, {useState} from 'react';
+
+        const data =
+        [
+          {
+            "id": 1,
+            "name": "Hossain",
+          },
+          {
+            "id": 2,
+            "name": "Roma",
+          },
+          {
+            "id": 3,
+            "name": "Naima",
+          },
+          {
+            "id": 4,
+            "name": "Lima",
+          },
+          {
+            "id": 5,
+            "name": "Sabina",
+          }
+        ]
+
+        const UseStateArray = () =>
+        {
+          const [users, setUsers] = useState(data);
+          const deleteAll = () =>
+          {
+            setUsers([]);
+          };
+          const deleteSigle = (id) =>
+          {
+            let newUsers = users.filter((users) => users.id !== id);
+            setUsers(newUsers);
+          };
+          return(
+              <>
+                  {
+                    users.map((user) =>
+                    {
+                      const {id, name} = user;
+                      return (
+                        <div key = {id} className="item">
+                          <h4>{name}</h4>
+                          <button onClick ={() => deleteSigle(id)} className="btn btn-primary btn-large">delete</button>
+                        </div>
+                      )
+                    })
+                  }
+                  <button onClick={deleteAll} className="btn">Delete All</button>
+              </>
+          )
+        };
+
+        export default UseStateArray;
 
 
 
