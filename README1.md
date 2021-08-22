@@ -1,16 +1,12 @@
 # useEffect
-* ### fetch data using useEffect
+### fetch data using useEffect
   
   import React, { useState, useEffect } from 'react';
-
   const url = 'https://api.github.com/users';
-
   const UseEffectFetchData = () =>
   {
     const [users, setUsers] = useState([]);
     //console.log(users);
-
-
     const getUsers = async() =>
     {
       const response = await fetch(url);
@@ -18,12 +14,9 @@
       setUsers(users);
       //console.log(users);
     };
-
     useEffect(()=>{
       getUsers();
     }, []);
-
-
     return(
       <>
         <div>
