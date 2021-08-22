@@ -1,43 +1,43 @@
-# useEffect
+## useEffect
 ### fetch data using useEffect
   
-  import React, { useState, useEffect } from 'react';
-  const url = 'https://api.github.com/users';
-  const UseEffectFetchData = () =>
-  {
-    const [users, setUsers] = useState([]);
-    //console.log(users);
-    const getUsers = async() =>
+    import React, { useState, useEffect } from 'react';
+    const url = 'https://api.github.com/users';
+    const UseEffectFetchData = () =>
     {
-      const response = await fetch(url);
-      const users = await response.json();
-      setUsers(users);
+      const [users, setUsers] = useState([]);
       //console.log(users);
+      const getUsers = async() =>
+      {
+        const response = await fetch(url);
+        const users = await response.json();
+        setUsers(users);
+        //console.log(users);
+      };
+      useEffect(()=>{
+        getUsers();
+      }, []);
+      return(
+        <>
+          <div>
+            <h1>Users</h1>
+            <ul className="users">
+              {users.map((user)=>{
+                const {id, login, avatar_url, html_url} = user;
+                return <li key = {id}>
+                  <img src={avatar_url} alt={login} />
+                  <div>
+                    <h4>{login}</h4>
+                    <a href={html_url}>Profile</a>
+                  </div>
+                </li>
+
+              })}
+            </ul>
+          </div>
+        </>
+      )
     };
-    useEffect(()=>{
-      getUsers();
-    }, []);
-    return(
-      <>
-        <div>
-          <h1>Users</h1>
-          <ul className="users">
-            {users.map((user)=>{
-              const {id, login, avatar_url, html_url} = user;
-              return <li key = {id}>
-                <img src={avatar_url} alt={login} />
-                <div>
-                  <h4>{login}</h4>
-                  <a href={html_url}>Profile</a>
-                </div>
-              </li>
 
-            })}
-          </ul>
-        </div>
-      </>
-    )
-  };
-
-  export default UseEffectFetchData;
+    export default UseEffectFetchData;
 
